@@ -5,20 +5,8 @@
 
 html, body {
   height: 100%;
-  margin:0px;
+  margin: 0px;
   padding:0px;
-  width: 100%;
-}
-
-section {
-  height: calc(100% - 50px);
-  padding:0px;
-  width: 100%;
-}
-
-footer {
-  height: 50px;
-  background-color: green;
   width: 100%;
 }
 

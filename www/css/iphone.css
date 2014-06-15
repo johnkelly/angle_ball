@@ -1,0 +1,11 @@
+section {
+  height: calc(100% - 50px);
+  padding:0px;
+  width: 100%;
+}
+
+footer {
+  height: 50px;
+  background-color: green;
+  width: 100%;
+}
