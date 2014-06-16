@@ -8,7 +8,7 @@ var Gol =  (function() {
       score       = 0,
       level       = 1,
       origin      = {
-        x: 250,
+        x: 500,
         y: 350
       },
       paddle,
@@ -40,8 +40,8 @@ var Gol =  (function() {
       balls[i].update(paddle.angle);
     }
 
-    if (frame_count % 15000000 == 0) {
-      var starting_x = NEWTON.rand(-board.width, board.width * 3);
+    if (frame_count % 15 == 0) {
+      var starting_x = NEWTON.rand(board.width);
       
       balls.push(new Ball({
         start_x: starting_x,

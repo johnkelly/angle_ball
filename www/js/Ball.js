@@ -26,7 +26,7 @@ Ball.prototype = {
         dist_y = this.end_y - this.y,
         ratio;
 
-    if (Math.abs(dist_x) > 2 || Math.abs(dist_y) > 2) {
+    if (Math.abs(dist_x) > 3 || Math.abs(dist_y) > 3) {
       ratio = NEWTON.pyth(dist_x, dist_y) / 5;
 
       this.x = this.x + dist_x / ratio;
@@ -42,7 +42,13 @@ Ball.prototype = {
       outbound_angle = Math.PI - this.psi - theta;
 
       this.end_y = -10;
-      this.end_x = this.end_y / Math.tan(outbound_angle);
+      if(this.start_x < 500) {
+        this.end_x = this.start_x + 500;
+      }else if(this.start_x == 500){
+        this.end_x = 500;
+      }else{
+        this.end_x = this.start_x - 500;
+      }
     }
 
   },

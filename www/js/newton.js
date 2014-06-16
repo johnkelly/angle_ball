@@ -3,8 +3,9 @@ var NEWTON = {
     return Math.pow( Math.pow(a, 2) + Math.pow(b, 2), .5);
   }, 
 
-  rand: function(min, max) {
-    return Math.floor(Math.random() * max + min);
+  rand: function(size) {
+    var num = Math.floor(Math.random() * size);
+    return num;
   },
 
   to_rad: function(degrees) {
