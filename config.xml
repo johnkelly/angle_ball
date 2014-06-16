@@ -1,8 +1,8 @@
 <!-- http://docs.phonegap.com/en/edge/config_ref_index.md.html -->
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.releaseboard.template" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Template</name>
-    <description>A template used by the Release[Board] team to develop mobile games.</description>
+<widget id="com.releaseboard.gol" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Gol</name>
+    <description>A gol used by the Release[Board] team to develop mobile games.</description>
     <author email="support@releaseboard.com" href="http://releaseboard.com">Release[Board] Team</author>
     <content src="index.html" />
     <access origin="*" />
