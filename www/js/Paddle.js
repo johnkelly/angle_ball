@@ -13,6 +13,7 @@ Paddle.prototype = {
   init: function() {
     var this_obj = this;
     this.draw();
+    this.normal = new Vector(1, this.angle);
 
     $(this.canvas).on('mousedown', function(e) {
       if (this_obj.click_on(e)) {
@@ -62,7 +63,7 @@ Paddle.prototype = {
   },
 
   update_angle: function(evt) {
-    this.angle = Math.tan((evt.pageY - this.center.y) / (evt.pageX - this.center.x));
+    this.angle = this.normal.theta = Math.tan((evt.pageY - this.center.y) / (evt.pageX - this.center.x));
     return this;
   }
 }

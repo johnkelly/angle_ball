@@ -39,9 +39,9 @@ BallRegulator.prototype = {
     }
   },
 
-  move: function(angle) {
+  move: function(normal) {
     for (var i = 0; i < this.balls.length; i++) {
-      this.balls[i].update(angle);
+      this.balls[i].update(normal);
     }
   }
 }

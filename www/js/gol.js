@@ -47,7 +47,7 @@ var Gol =  (function() {
       ctx: ctx,
       frame_count: frame_count
     });
-    ballRegulator.move();
+    ballRegulator.move(paddle.normal);
     frame_count++;
   }
 

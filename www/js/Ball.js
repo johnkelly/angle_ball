@@ -19,38 +19,39 @@ Ball.prototype = {
     var x_direction = this.start_x > this.half_x ? -1 : 1
     this.velocity_x = (this.distance * Math.cos(this.psi)) / 500 * x_direction
     this.velocity_y = Math.abs((this.distance * Math.sin(this.psi)) / 500)
-
+    this.velocity = new Vector(this.speed, Math.atan((this.end_y - this.start_y)/ (this.end_x - this.start_x)));
 
     this.draw();
   },
 
-  update: function(theta) {
+  update: function(normal) {
     if(this.outbound) {
-      move_closer_to_destination(this);
+      this.move();
     } else if(Math.floor(this.end_y - this.y) > 0) {
-      move_closer_to_destination(this);
+      this.move();
     } else {
-      set_new_destination(this, 0);
+      this.set_new_destination(normal);
     }
   },
 
   draw: function() {
     this.ctx.fillStyle = "#FFFFFF";
     this.ctx.fillRect(this.x, this.y, this.BALL_RAD, this.BALL_RAD);
+  },
+
+  move: function() {
+    this.x += this.velocity_x
+    this.y += this.velocity_y
+  },
+
+  set_new_destination: function(normal) {
+    console.log(this.velocity.dot(normal));
+    // var gamma = Math.PI / 2 + theta - this.psi,
+    //     outbound_angle = Math.PI - this.psi - theta;
+
+    this.outbound = true;
+    this.velocity_y = this.velocity_y * -1
   }
-}
-
-move_closer_to_destination = function(ball) {
-  ball.x += ball.velocity_x
-  ball.y += ball.velocity_y
-}
-
-set_new_destination = function(ball, theta) {
-  var gamma = Math.PI / 2 + theta - ball.psi;
-  var outbound_angle = Math.PI - ball.psi - theta;
-
-  ball.outbound = true;
-  ball.velocity_y = ball.velocity_y * -1
 }
 
 calculate_psi = function(ball) {
