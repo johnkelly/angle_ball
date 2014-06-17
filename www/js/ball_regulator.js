@@ -25,7 +25,7 @@ BallRegulator.prototype = {
 
   reap: function() {
     for (var i = 0; i < this.balls.length; i++) {
-      if (this.balls[i].outbound && this.balls.y > this.balls.start_y) {
+      if (this.balls[i].outbound && this.balls[i].y < 0) {
         delete this.balls[i];
         this.balls.splice(i, 1);
       }
