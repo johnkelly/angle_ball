@@ -32,8 +32,8 @@ var Gol =  (function() {
     board.width = w = window.innerWidth;
     board.height = h = window.innerHeight;
 
-    origin.x = Math.floor(w / 2);
-    origin.y = Math.floor(h / 2);
+    origin.x = ballRegulator.origin_x = Math.floor(w / 2);
+    origin.y = ballRegulator.origin_y = Math.floor(h / 2);
 
     return {
       width: screen_width,
