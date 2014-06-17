@@ -8,13 +8,14 @@ function BallRegulator(config) {
 
 BallRegulator.prototype = {
   add: function(config) {
-    if(config.frame_count % 30 == 0){
+    if(config.frame_count % 15 == 0){
       var newBall = new Ball({
         start_x: NEWTON.rand(this.max_x),
         start_y: -1,
         end_x: this.origin_x,
         end_y: this.end_y,
-        speed: 5
+        speed: 5,
+        max_x: this.max_x
       });
       newBall.init({
         ctx: config.ctx

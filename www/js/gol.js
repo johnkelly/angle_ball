@@ -74,7 +74,7 @@ var Gol =  (function() {
       paddle = new Paddle({
         ctx: ctx,
         origin: {
-          x: origin.x,
+          x: board.width / 2,
           y: board.height - 150
         },
         canvas: board
