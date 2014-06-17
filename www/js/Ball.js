@@ -40,6 +40,7 @@ Ball.prototype = {
       gamma = Math.PI / 2 + theta - this.psi;
 
       outbound_angle = Math.PI - this.psi - theta;
+      this.outbound = true;
 
       this.end_y = -10;
       if(this.start_x < 500) {

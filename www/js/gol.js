@@ -13,7 +13,17 @@ var Gol =  (function() {
       },
       paddle,
       frame_count = 0;
-      balls       = [];
+      ballRegulator = new BallRegulator({
+        ctx: ctx,
+        origin: {
+          x: origin.x,
+          y: board.height - 150
+        },
+        board: {
+          height: window.innerHeight,
+          width: window.innerWidth
+        }
+      });
 
   function get_screen_size() {
     var w = 0,
@@ -32,32 +42,14 @@ var Gol =  (function() {
   }   
 
   function update() {
-    for (var i = 0; i < balls.length; i++) {
-      if (balls[i].outbound && balls.x == balls.end_x) {
-        delete balls[i];
-        balls.splice(i, 1);
-      }
-      balls[i].update(paddle.angle);
-    }
-
-    if (frame_count % 15 == 0) {
-      var starting_x = NEWTON.rand(board.width);
-      
-      balls.push(new Ball({
-        start_x: starting_x,
-        start_y: -10,
-        end_x: origin.x,
-        end_y: board.height - 150,
-        speed: 5
-      }));
-
-      balls[balls.length - 1].init({
-        ctx: ctx
-      });
-    }
-
+    ballRegulator.reap();
+    ballRegulator.add({
+      ctx: ctx,
+      frame_count: frame_count
+    });
+    ballRegulator.move();
     frame_count++;
-  } 
+  }
 
   function draw() {
     ctx.clearRect(0, 0, board.width, board.height);
@@ -71,9 +63,8 @@ var Gol =  (function() {
 
     ctx.fillRect(origin.x, origin.y, 4, 4);
 
-    for (var i = 0; i < balls.length; i++) {
-      balls[i].draw();
-    }
+    ballRegulator.draw(paddle.angle);
+    paddle.draw();
   }
 
   return {
@@ -94,7 +85,6 @@ var Gol =  (function() {
     loop: function() {
       update();
       draw();
-      paddle.draw();
       requestAnimationFrame(Gol.loop);
     }
   }
