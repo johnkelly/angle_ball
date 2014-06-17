@@ -22,40 +22,44 @@ Ball.prototype = {
   },
 
   update: function(theta) {
-    var dist_x = this.end_x - this.x,
-        dist_y = this.end_y - this.y,
-        ratio;
+    var dist_y = (this.end_y - this.y);
 
-    if (Math.abs(dist_x) > 3 || Math.abs(dist_y) > 3) {
-      ratio = NEWTON.pyth(dist_x, dist_y) / 5;
-
-      this.x = this.x + dist_x / ratio;
-      this.y = this.y + dist_y / ratio;
+    if(this.outbound) {
+      move_closer_to_destination(this);
+    } else if(Math.floor(dist_y) > 0) {
+      move_closer_to_destination(this);
+    } else {
+      set_new_destination(this, theta);
     }
-    else {
-      var outbound_angle,
-          psi,
-          gamma;
-
-      gamma = Math.PI / 2 + theta - this.psi;
-
-      outbound_angle = Math.PI - this.psi - theta;
-      this.outbound = true;
-
-      this.end_y = -10;
-      if(this.start_x < 500) {
-        this.end_x = this.start_x + 500;
-      }else if(this.start_x == 500){
-        this.end_x = 500;
-      }else{
-        this.end_x = this.start_x - 500;
-      }
-    }
-
   },
 
   draw: function() {
     this.ctx.fillStyle = "#FFFFFF";
     this.ctx.fillRect(this.x, this.y, this.BALL_RAD, this.BALL_RAD);
+  }
+}
+
+move_closer_to_destination = function(ball) {
+  var dist_x = (ball.end_x - ball.x);
+  var dist_y = (ball.end_y - ball.y);
+  var ratio = NEWTON.pyth(dist_x, dist_y) / 5;
+
+  ball.x += dist_x / ratio;
+  ball.y += dist_y / ratio;
+}
+
+set_new_destination = function(ball, theta) {
+  var gamma = Math.PI / 2 + theta - ball.psi;
+  var outbound_angle = Math.PI - ball.psi - theta;
+
+  ball.outbound = true;
+
+  ball.end_y = -1;
+  if(ball.start_x < 500) {
+    ball.end_x = ball.start_x + 500;
+  }else if(ball.start_x == 500){
+    ball.end_x = 500;
+  }else{
+    ball.end_x = ball.start_x - 500;
   }
 }
