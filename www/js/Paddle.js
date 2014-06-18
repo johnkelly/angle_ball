@@ -13,7 +13,8 @@ Paddle.prototype = {
   init: function() {
     var this_obj = this;
     this.draw();
-    this.normal = new Vector(1, this.angle);
+    var normal_angle = (this.angle >= Math.PI) ? (this.angle - (2 * Math.PI)) : this.angle
+    this.normal = new Vector(1, (normal_angle + (Math.PI / 2)), 1);
 
     $(this.canvas).on('mousedown', function(e) {
       if (this_obj.click_on(e)) {

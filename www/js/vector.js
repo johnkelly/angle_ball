@@ -26,13 +26,55 @@ Vector.prototype = {
     return this.magnitude * vector.magnitude * Math.cos(this.theta - vector.theta)
   },
 
-  reflect: function(normal) {
-    if (!(vector instanceof Vector)) {
-      return false;
-    }
+  add: function(vector) {
+    this.vx += vector.vx;
+    this.vy += vector.vy;
+    return vector;
+  },
 
-    // formula to get reflection vector (r) from original vector (vect) and normal vector (n): 
-    // r = vect - 2 * (vect.dot(n)) * n
-    return 
+  subtract: function(vector) {
+    this.vx -= vector.vx;
+    this.vy -= vector.vy;
+    return vector;
+  },
+
+  multiply: function(amount) {
+    this.vx *= amount;
+    this.vy *= amount;
+    return this;
+  },
+
+
+  reflect: function(normal) {
+    //r = v - 2 (v.n)n
+    var normal_vector = new Vector(normal.magnitude, normal.theta);
+    var new_vector = normal_vector.multiply(2 * this.dot(normal_vector));
+
+    if(new_vector.vy > 0) {
+      new_vector.vy *= -1;
+    }
+    this.add(new_vector);
+
+    //Vnew = b * ( -2 *(V dot N) * N + V )
+    // var bounce = 1; //range from 0 to 1
+    // new_vector.add(this);
+    // console.log("NEW VECTOR 2", new_vector.vx, new_vector.vy)
+    // new_vector.multiply(bounce);
+    // console.log("NEW VECTOR 3", new_vector.vx, new_vector.vy)
+
+
+
+    // console.log("Paddle", normal_vector);
+    // var new_vector = normal_vector.multiply(-2 * this.dot(normal_vector));
+    // console.log("NEW VECTOR", new_vector.vx, new_vector.vy)
+    // new_vector.add(this);
+    // console.log("NEW VECTOR 2", new_vector.vx, new_vector.vy)
+    // new_vector.multiply(bounce);
+    // console.log("NEW VECTOR 3", new_vector.vx, new_vector.vy)
+
+    // console.log(this.vx, this.vy);
+    // this.vx = new_vector.vx;
+    // this.vy = new_vector.vy;
+    // console.log(this.vx, this.vy);
   }
 }

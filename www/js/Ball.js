@@ -7,7 +7,6 @@ function Ball(config) {
   this.end_x = config.end_x;
   this.end_y = config.end_y;
   this.speed = config.speed || DEFAULT_SPEED;
-  this.outbound = false;
   this.x_direction = (this.start_x > (config.max_x / 2)) ? -1 : 1;
 }
 
@@ -19,13 +18,10 @@ Ball.prototype = {
   },
 
   update: function(normal) {
-    if(this.outbound) {
-      this.move();
-    } else if(Math.floor(this.end_y - this.y) > 0) {
-      this.move();
-    } else {
-      this.set_new_destination(normal);
+    if(Math.floor(this.end_y - this.y) <= 3){
+      this.velocity.reflect(normal);
     }
+    this.move();
   },
 
   draw: function() {
@@ -37,10 +33,4 @@ Ball.prototype = {
     this.x += this.velocity.vx
     this.y += this.velocity.vy
   },
-
-  set_new_destination: function(normal) {
-    console.log(this.velocity.dot(normal));
-    this.outbound = true;
-    this.velocity.vy = this.velocity.vy * -1
-  }
 }
