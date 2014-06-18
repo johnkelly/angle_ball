@@ -1,8 +1,9 @@
-function Vector(mag, theta) {
+function Vector(mag, theta, x_direction) {
   this.magnitude = mag || 1;
   this.theta = theta || 0;
-  this.vx = this.magnitude * Math.cos(this.theta);
-  this.vy = this.magnitude * Math.sin(this.theta);
+  this.x_direction = x_direction || 1;
+  this.vx = Math.abs(this.magnitude * Math.cos(this.theta)) * this.x_direction;
+  this.vy = Math.abs(this.magnitude * Math.sin(this.theta));
 }
 
 Vector.prototype = {
