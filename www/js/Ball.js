@@ -27,6 +27,13 @@ Ball.prototype = {
   draw: function() {
     this.ctx.fillStyle = "#FFFFFF";
     this.ctx.fillRect(this.x, this.y, this.BALL_RAD, this.BALL_RAD);
+
+    //ball trajectory
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.x, this.y);
+    this.ctx.lineTo(this.end_x, this.end_y);
+    this.ctx.strokeStyle = '#FFFFFF';
+    this.ctx.stroke();
   },
 
   move: function() {
