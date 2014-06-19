@@ -1,6 +1,7 @@
 function Ball(config) {
   var DEFAULT_SPEED = 5000;
 
+  this.id = config.id;
   this.BALL_RAD = 5;
   this.start_x = this.x = config.start_x || 0;
   this.start_y = this.y = config.start_y || -20;
