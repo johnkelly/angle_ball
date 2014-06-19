@@ -66,7 +66,7 @@ Paddle.prototype = {
   update_angle: function(evt) {
     this.angle = this.normal.theta = Math.tan((evt.pageY - this.center.y) / (evt.pageX - this.center.x));
     var normal_angle = (this.angle >= Math.PI) ? (this.angle - (2 * Math.PI)) : this.angle
-    this.normal = new Vector(1, (normal_angle + (Math.PI / 2)), 1);
+    this.normal = new Vector(1, (normal_angle + (Math.PI / 2)));
     return this;
   }
 }

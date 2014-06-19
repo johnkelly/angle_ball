@@ -1,7 +1,8 @@
-function Vector(mag, theta, x_direction) {
+function Vector(mag, theta) {
   this.magnitude = mag || 1;
   this.theta = theta || 0;
-  this.x_direction = x_direction || 1;
+  this.x_direction = (this.theta > 0) ? 1 : -1;
+  this.theta = Math.abs(this.theta);
   this.vx = Math.abs(this.magnitude * Math.cos(this.theta)) * this.x_direction;
   this.vy = Math.abs(this.magnitude * Math.sin(this.theta));
 }
@@ -46,35 +47,11 @@ Vector.prototype = {
 
 
   reflect: function(normal) {
-    //r = v - 2 (v.n)n
+    //Vnew = -2*(V dot N)*N + V
     var normal_vector = new Vector(normal.magnitude, normal.theta);
-    var new_vector = normal_vector.multiply(2 * this.dot(normal_vector));
-
-    if(new_vector.vy > 0) {
-      new_vector.vy *= -1;
-    }
-    this.add(new_vector);
-
-    //Vnew = b * ( -2 *(V dot N) * N + V )
-    // var bounce = 1; //range from 0 to 1
-    // new_vector.add(this);
-    // console.log("NEW VECTOR 2", new_vector.vx, new_vector.vy)
-    // new_vector.multiply(bounce);
-    // console.log("NEW VECTOR 3", new_vector.vx, new_vector.vy)
-
-
-
-    // console.log("Paddle", normal_vector);
-    // var new_vector = normal_vector.multiply(-2 * this.dot(normal_vector));
-    // console.log("NEW VECTOR", new_vector.vx, new_vector.vy)
-    // new_vector.add(this);
-    // console.log("NEW VECTOR 2", new_vector.vx, new_vector.vy)
-    // new_vector.multiply(bounce);
-    // console.log("NEW VECTOR 3", new_vector.vx, new_vector.vy)
-
-    // console.log(this.vx, this.vy);
-    // this.vx = new_vector.vx;
-    // this.vy = new_vector.vy;
-    // console.log(this.vx, this.vy);
+    normal_vector.multiply(this.dot(normal_vector));
+    normal_vector.multiply(-2)
+    this.vx += normal_vector.vx;
+    this.vy += normal_vector.vy;
   }
 }

@@ -13,7 +13,7 @@ function Ball(config) {
 Ball.prototype = {
   init: function(config) {
     this.ctx = config.ctx;
-    this.velocity = new Vector(this.speed, Math.atan((this.end_y - this.start_y)/ (this.end_x - this.start_x)), this.x_direction);
+    this.velocity = new Vector(this.speed, Math.atan((this.end_y - this.start_y)/ (this.end_x - this.start_x)));
     this.draw();
   },
 
