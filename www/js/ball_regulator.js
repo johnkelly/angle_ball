@@ -8,7 +8,7 @@ function BallRegulator(config) {
 
 BallRegulator.prototype = {
   add: function(config) {
-    if(config.frame_count % 15 == 0){
+    if(this.balls.length < 1){
       var newBall = new Ball({
         start_x: NEWTON.rand(this.max_x),
         start_y: -1,
@@ -26,7 +26,7 @@ BallRegulator.prototype = {
 
   reap: function() {
     for (var i = 0; i < this.balls.length; i++) {
-      if (this.balls[i].outbound && this.balls[i].y < 0) {
+      if (this.balls[i].y < 0) {
         delete this.balls[i];
         this.balls.splice(i, 1);
       }
