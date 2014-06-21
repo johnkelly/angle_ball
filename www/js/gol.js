@@ -70,7 +70,7 @@ var Gol =  (function() {
 
     ctx.fillRect(origin.x, origin.y, 4, 4);
 
-    ballRegulator.draw(paddle.angle);
+    ballRegulator.draw();
     paddle.draw();
   }
 

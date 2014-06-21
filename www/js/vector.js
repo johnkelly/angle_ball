@@ -43,15 +43,5 @@ Vector.prototype = {
     this.vx *= amount;
     this.vy *= amount;
     return this;
-  },
-
-
-  reflect: function(normal) {
-    //Vnew = -2*(V dot N)*N + V
-    var normal_vector = new Vector(normal.magnitude, normal.theta);
-    normal_vector.multiply(this.dot(normal_vector));
-    normal_vector.multiply(-2)
-    this.vx += normal_vector.vx;
-    this.vy += normal_vector.vy;
   }
 }
