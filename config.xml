@@ -10,6 +10,10 @@
     <feature name="StatusBar">
       <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
+    <feature name="SocialSharing">
+      <param name="ios-package" value="SocialSharing" />
+    </feature>
+
     <preferance name="Orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="fullscreen" value="true" />
