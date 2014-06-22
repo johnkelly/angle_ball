@@ -21,7 +21,7 @@ Ball.prototype = {
   },
 
   update: function(normal) {
-    if(Math.floor(this.end_y - this.y) <= 3){
+    if(Math.floor(this.end_y - this.y) <= 3 && this.outbound == false){
       this.reflect(normal);
     }
     if(this.outbound == false && this.current_normal != normal) {
