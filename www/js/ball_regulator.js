@@ -3,6 +3,7 @@ function BallRegulator(config) {
   this.origin_x = config.origin.x;
   this.origin_y = config.origin.y;
   this.max_x = config.board.width;
+  this.max_y = config.board.height;
   this.end_y = (config.board.height - 150);
   this.current_id = -1;
 }
@@ -14,7 +15,7 @@ BallRegulator.prototype = {
 
       var newBall = new Ball({
         id: this.current_id,
-        start_x: NEWTON.rand(this.max_x),
+        start_x: 872,//NEWTON.rand(this.max_x),
         start_y: -1,
         end_x: this.origin_x,
         end_y: this.end_y,
@@ -31,6 +32,15 @@ BallRegulator.prototype = {
   reap: function() {
     for (var i = 0; i < this.balls.length; i++) {
       if (this.balls[i].y < 0) {
+        delete this.balls[i];
+        this.balls.splice(i, 1);
+      }else if(this.balls[i].y > this.max_y){
+        delete this.balls[i];
+        this.balls.splice(i, 1);
+      }else if(this.balls[i].x < 0){
+        delete this.balls[i];
+        this.balls.splice(i, 1);
+      }else if(this.balls[i].x > this.max_x){
         delete this.balls[i];
         this.balls.splice(i, 1);
       }
