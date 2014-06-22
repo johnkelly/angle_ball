@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+$(function() {
+    FastClick.attach(document.body);
+});
 
 var app = {
     // Application Constructor
