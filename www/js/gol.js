@@ -5,25 +5,15 @@ var Gol =  (function() {
       ctx         = board.getContext('2d'),
       screen_width, screen_height,
       goal_width  = 200,
-      score       = 0,
-      level       = 1,
       origin      = {
         x: 500,
         y: 350
       },
       paddle,
+      score,
+      level,
+      pause = false,
       frame_count = 0;
-      ballRegulator = new BallRegulator({
-        ctx: ctx,
-        origin: {
-          x: origin.x,
-          y: board.height - 150
-        },
-        board: {
-          height: window.innerHeight,
-          width: window.innerWidth
-        }
-      });
 
   function get_screen_size() {
     var w = 0,
@@ -32,14 +22,14 @@ var Gol =  (function() {
     board.width = w = window.innerWidth;
     board.height = h = window.innerHeight;
 
-    origin.x = ballRegulator.origin_x = Math.floor(w / 2);
-    origin.y = ballRegulator.origin_y = Math.floor(h / 2);
+    origin.x = Math.floor(w / 2);
+    origin.y = Math.floor(h / 2);
 
     return {
       width: screen_width,
       height: screen_height
     }
-  }   
+  }   menu_button
 
   function update() {
     ballRegulator.reap();
@@ -58,7 +48,6 @@ var Gol =  (function() {
     ctx.fillRect(0, 0, board.width, board.height);
 
     ctx.fillStyle = "#ffffff";
-    ctx.fillText("Timer: " + frame_count, 20, 20);
     ctx.fillText("Score: " + score, 100, 20);
     ctx.fillText("Level: " + level, 180, 20);
     ctx.fillText("Angle: " + Math.round(NEWTON.to_deg(paddle.angle)), 260, 20);
@@ -77,6 +66,8 @@ var Gol =  (function() {
   return {
     init: function() {
       get_screen_size();
+      score = 0;
+      level = 1;
       requestAnimationFrame(Gol.loop);
       paddle = new Paddle({
         ctx: ctx,
@@ -87,17 +78,45 @@ var Gol =  (function() {
         canvas: board
       });
       paddle.init();
+      ballRegulator = new BallRegulator({
+        ctx: ctx,
+        origin: {
+          x: origin.x,
+          y: board.height - 150
+        },
+        board: {
+          height: window.innerHeight,
+          width: window.innerWidth
+        }
+      });
+      ballRegulator.origin_x = origin.x;
+      ballRegulator.origin_y = origin.y;
+    },
+
+    pause: function() {
+      pause = true;
+    },
+
+    unpause: function() {
+      pause = false;
+      this.loop();
+    },
+
+    restart: function() {
+      pause = false;
+      this.init();
     },
 
     loop: function() {
       update();
       draw();
-      requestAnimationFrame(Gol.loop);
+      if(pause == false){
+        requestAnimationFrame(Gol.loop);
+      }
     }
   }
 })();
-  
 
 $(document).ready(function() {
-  Gol.init();    
+  Gol.init();
 });
