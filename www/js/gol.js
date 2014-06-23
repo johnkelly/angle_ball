@@ -102,6 +102,13 @@ var Gol =  (function() {
       this.loop();
     },
 
+    game_over: function() {
+      pause = true;
+      $('#game').hide();
+      $('#game_over_score').text(score);
+      $('#game_over_menu').show();
+    },
+
     restart: function() {
       pause = false;
       this.init();

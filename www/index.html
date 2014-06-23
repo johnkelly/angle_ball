@@ -42,14 +42,25 @@ under the License.
       <h1>Menu</h1>
       <ul>
         <li><button id="unpause_button">Continue Game</button></li>
-        <li><button id="restart_button">Restart Game</button></li>
+        <li><button class="restart_button">New Game</button></li>
         <li><button onclick="window.plugins.socialsharing.share('Message only')">Share</button></li>
-        <li><button id="leaderboard_button">Leaderboard</button></li>
+        <li><button class="leaderboard_button">Leaderboard</button></li>
       </ul>
     </section>
 
     <section class="menu" id="game_over_menu">
       <h1>Game Over</h1>
+      <ul>
+        <li>
+          <div id="game_over_score_box">
+            <div>Score: <span id="game_over_score"></span></div>
+            <div>Best: <span id="game_over_best">N+1</span></div>
+          </div>
+        </li>
+        <li><button class="restart_button">New Game</button></li>
+        <li><button onclick="window.plugins.socialsharing.share('Message only')">Share</button></li>
+        <li><button class="leaderboard_button">Leaderboard</button></li>
+      </ul>
     </section>
 
     <footer id="default_ad"></footer>

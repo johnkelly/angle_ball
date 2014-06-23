@@ -23,6 +23,23 @@ button {
   width: 10em;
 }
 
+
+#game_over_score_box {
+  font-family: Arial;
+  color: #000;
+  font-size: 20px;
+  background: #FFF;
+  padding: .5em 0em .5em 0em;
+  text-decoration: none;
+  font-weight: 800;
+  width: 10em;
+  display: inline-block;
+}
+
+#game_over_score_box div {
+  margin-top: .5em;
+}
+
 button:hover {
   text-decoration: none;
 }
