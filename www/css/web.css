@@ -1,0 +1,13 @@
+section {
+  height: calc(100% - 90px);
+  padding:0px;
+  width: 100%;
+}
+
+footer {
+  height: 90px;
+  background: url(../img/ad.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+}

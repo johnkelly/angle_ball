@@ -7,12 +7,39 @@
   position: absolute;
   padding: 10px;
   z-index: 99;
+  width: 5em;
+  font-size: 12px;
 }
 
 button {
   cursor: pointer;
+  font-family: Arial;
+  color: #000;
+  font-size: 20px;
+  background: #FFF;
+  padding: .5em 1em .5em 1em;
+  text-decoration: none;
+  font-weight: 800;
+  width: 10em;
+}
+
+button:hover {
+  text-decoration: none;
 }
 
 .menu {
   display: none;
+  text-align: center;
+  background: #000;
+}
+
+.menu ul li {
+  padding: 1em 1em;
+}
+
+.menu h1 {
+  color: #FFF;
+  font-size: 3em;
+  font-family: Arial;
+  font-weight: 200;
 }

@@ -29,6 +29,7 @@ under the License.
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" media="all and (min-device-width: 320px) and (max-device-height: 568px) and (orientation:portrait)" href="css/iphone.css" />
     <link rel="stylesheet" type="text/css" media="all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait)" href="css/ipad.css" />
+    <link rel="stylesheet" type="text/css" media="all and (min-device-width: 768px) and (min-device-height: 1024px)" href="css/web.css" />
     <title>Gol</title>
   </head>
   <body>
@@ -39,9 +40,11 @@ under the License.
 
     <section class="menu" id="pause_menu">
       <h1>Menu</h1>
-      <button id="unpause_button">Continue Game</button>
-      <button id="restart_button">Restart Game</button>
-      <button onclick="window.plugins.socialsharing.share('Message only')">Share</button>
+      <ul>
+        <li><button id="unpause_button">Continue Game</button></li>
+        <li><button id="restart_button">Restart Game</button></li>
+        <li><button onclick="window.plugins.socialsharing.share('Message only')">Share</button></li>
+      </ul>
     </section>
 
     <section class="menu" id="game_over_menu">
