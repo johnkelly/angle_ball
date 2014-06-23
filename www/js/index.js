@@ -37,6 +37,7 @@ var app = {
 
     onQueryReady: function() {
       $(document).ready(function() {
+        document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
         Gol.init();
         open_pause_menu();
       });

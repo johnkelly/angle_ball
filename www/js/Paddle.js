@@ -34,7 +34,27 @@ Paddle.prototype = {
     $(this.canvas).on('mouseup', function() {
       this_obj.moving = false;
     });
+
+    $(this.canvas).on('touchstart', function(e) {
+      if (this_obj.click_on(e)) {
+        this_obj.moving = true;
+      }
+      else {
+        this.moving = false;
+      }
+    });
+
+    $(this.canvas).on('touchmove', function(e) {
+      if (this_obj.moving === true) {
+        this_obj.update_angle(e);
+      }
+    });
+
+    $(this.canvas).on('touchend', function() {
+      this_obj.moving = false;
+    });
   },
+
 
   draw: function() {
     this.ctx.fillStyle = this.color;
