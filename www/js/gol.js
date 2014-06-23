@@ -116,7 +116,3 @@ var Gol =  (function() {
     }
   }
 })();
-
-$(document).ready(function() {
-  Gol.init();
-});

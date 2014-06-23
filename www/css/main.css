@@ -6,6 +6,11 @@
 #menu_button {
   position: absolute;
   padding: 10px;
+  z-index: 99;
+}
+
+button {
+  cursor: pointer;
 }
 
 .menu {

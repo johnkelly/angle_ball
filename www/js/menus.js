@@ -1,24 +1,19 @@
 open_pause_menu = function() {
-  $('#menu_button').click(function(){
+  $('#menu_button').on('click', function(event, ui) {
     Gol.pause();
     $('#game').hide();
     $('#pause_menu').show();
   })
 
-  $('#unpause_button').click(function(){
+  $('#unpause_button').on('click', function(event, ui) {
     $('#pause_menu').hide();
     $('#game').show();
     Gol.unpause();
   })
 
-  $('#restart_button').click(function(){
+  $('restart_button').on('click', function(event, ui) {
     $('#pause_menu').hide();
     $('#game').show();
     Gol.restart();
   })
 }
-
-
-$(document).ready(function() {
-  open_pause_menu();
-});
