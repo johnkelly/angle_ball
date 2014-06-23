@@ -11,7 +11,7 @@ open_pause_menu = function() {
     Gol.unpause();
   })
 
-  $('restart_button').on('click', function(event, ui) {
+  $('#restart_button').on('click', function(event, ui) {
     $('#pause_menu').hide();
     $('#game').show();
     Gol.restart();
