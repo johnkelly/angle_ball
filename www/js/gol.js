@@ -104,9 +104,22 @@ var Gol =  (function() {
 
     game_over: function() {
       pause = true;
+      this.set_best_score(score);
       $('#game').hide();
       $('#game_over_score').text(score);
+      $('#game_over_best').text(this.get_best_score());
       $('#game_over_menu').show();
+    },
+
+    set_best_score: function(score) {
+      var store_score = window.localStorage.getItem('best_score');
+      if(store_score == null || store_score < score){
+        window.localStorage.setItem('best_score', score);
+      }
+    },
+
+    get_best_score: function() {
+      return window.localStorage.getItem('best_score');
     },
 
     restart: function() {
