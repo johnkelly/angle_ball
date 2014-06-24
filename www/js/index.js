@@ -34,6 +34,33 @@ var app = {
     onDeviceReady: function() {
       StatusBar.hide();
       gamecenter.auth(null, null);
+      var admob_ios_key = 'ca-app-pub-4276911451927978/9172100847';
+      var admob_android_key = 'ca-app-pub-4276911451927978/9172100847';
+      var adId = (navigator.userAgent.indexOf('Android') >=0) ? admob_android_key : admob_ios_key;
+
+      if( window.plugins && window.plugins.AdMob ) {
+        var am = window.plugins.AdMob;
+
+        am.createBannerView(
+            {
+              'publisherId': adId,
+              'adSize': am.AD_SIZE.SMART_BANNER,
+              'bannerAtTop': false
+            },
+            function() {
+              am.requestAd(
+                { 'isTesting':true },
+                function(){
+                  am.showAd( true );
+                },
+                function(){ console.log('failed to request ad'); }
+                );
+            },
+            function(){ console.log('failed to create banner view'); }
+            );
+      } else {
+        console.log('AdMob plugin not available/ready.');
+      }
     },
 
     onQueryReady: function() {

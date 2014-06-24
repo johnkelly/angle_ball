@@ -31,6 +31,10 @@
                         {
                             "xml": "<feature name=\"GameCenter\"><param name=\"ios-package\" value=\"GameCenter\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AdMob\"><param name=\"ios-package\" value=\"CDVAdMob\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -47,9 +51,49 @@
                         {
                             "xml": "true",
                             "count": 1
+                        },
+                        {
+                            "xml": "false",
+                            "count": 1
                         }
                     ],
                     "GameKit.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "StoreKit.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "AudioToolbox.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "AdSupport.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "CoreTelephony.framework": [
                         {
                             "xml": "false",
                             "count": 1
@@ -67,6 +111,9 @@
             "PACKAGE_NAME": "com.releaseboard.gol"
         },
         "uk.co.ilee.gamecenter": {
+            "PACKAGE_NAME": "com.releaseboard.gol"
+        },
+        "com.rjfun.cordova.plugin.admob": {
             "PACKAGE_NAME": "com.releaseboard.gol"
         }
     },
