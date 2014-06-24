@@ -114,6 +114,7 @@ var Gol =  (function() {
     set_best_score: function(score) {
       var store_score = window.localStorage.getItem('best_score');
       if(store_score == null || store_score < score){
+        gamecenter.submitScore(null, null, { score: score, leaderboardId: "main_leaderboard" });
         window.localStorage.setItem('best_score', score);
       }
     },

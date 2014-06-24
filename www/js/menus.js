@@ -16,4 +16,7 @@ open_pause_menu = function() {
     $('#game').show();
     Gol.restart();
   })
+  $('.leaderboard_button').on('click', function(event, ui) {
+    gamecenter.showLeaderboard(null, null, { period: "today", leaderboardId: "main_leaderboard" });
+  })
 }

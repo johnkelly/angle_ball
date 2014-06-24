@@ -27,6 +27,10 @@
                         {
                             "xml": "<feature name=\"SocialSharing\"><param name=\"ios-package\" value=\"SocialSharing\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"GameCenter\"><param name=\"ios-package\" value=\"GameCenter\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -44,6 +48,12 @@
                             "xml": "true",
                             "count": 1
                         }
+                    ],
+                    "GameKit.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
                     ]
                 }
             }
@@ -54,6 +64,9 @@
             "PACKAGE_NAME": "com.releaseboard.template"
         },
         "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "com.releaseboard.gol"
+        },
+        "uk.co.ilee.gamecenter": {
             "PACKAGE_NAME": "com.releaseboard.gol"
         }
     },

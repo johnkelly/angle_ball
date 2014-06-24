@@ -33,6 +33,7 @@ var app = {
 
     onDeviceReady: function() {
       StatusBar.hide();
+      gamecenter.auth(null, null);
     },
 
     onQueryReady: function() {
