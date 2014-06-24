@@ -12,6 +12,7 @@ function Ball(config) {
   this.outbound = false;
   this.exit_coordinates = null;
   this.current_normal = null;
+  this.sound = false;
 }
 
 Ball.prototype = {
@@ -21,6 +22,11 @@ Ball.prototype = {
   },
 
   update: function(normal) {
+    if(Math.floor(this.end_y - this.y) <= 80 && this.sound == false){
+      var bounce = new Audio("bounce.mp3");
+      bounce.play();
+      this.sound = true;
+    }
     if(Math.floor(this.end_y - this.y) <= 3 && this.outbound == false){
       this.reflect(normal);
     }
