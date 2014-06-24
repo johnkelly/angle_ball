@@ -4,7 +4,6 @@ function BallRegulator(config) {
   this.origin_y = config.origin.y;
   this.max_x = config.board.width;
   this.max_y = config.board.height;
-  this.end_y = (config.board.height - 150);
   this.current_id = -1;
 }
 
@@ -18,7 +17,7 @@ BallRegulator.prototype = {
         start_x: NEWTON.rand(this.max_x),
         start_y: -1,
         end_x: this.origin_x,
-        end_y: this.end_y,
+        end_y: this.origin_y,
         speed: 5,
         max_x: this.max_x
       });

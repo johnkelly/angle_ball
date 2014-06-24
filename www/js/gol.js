@@ -20,7 +20,12 @@ var Gol =  (function() {
         h = 0;
 
     board.width = w = window.innerWidth;
-    board.height = h = window.innerHeight;
+
+    if(window.innerHeight <= 568) {
+      board.height = h = (window.innerHeight - 50);
+    } else {
+      board.height = h = (window.innerHeight - 90);
+    }
 
     origin.x = Math.floor(w / 2);
     origin.y = Math.floor(h / 2);
@@ -73,7 +78,7 @@ var Gol =  (function() {
         ctx: ctx,
         origin: {
           x: board.width / 2,
-          y: board.height - 150
+          y: board.height - 30
         },
         canvas: board
       });
@@ -82,15 +87,13 @@ var Gol =  (function() {
         ctx: ctx,
         origin: {
           x: origin.x,
-          y: board.height - 150
+          y: board.height - 30
         },
         board: {
           height: window.innerHeight,
           width: window.innerWidth
         }
       });
-      ballRegulator.origin_x = origin.x;
-      ballRegulator.origin_y = origin.y;
     },
 
     pause: function() {
@@ -114,7 +117,9 @@ var Gol =  (function() {
     set_best_score: function(score) {
       var store_score = window.localStorage.getItem('best_score');
       if(store_score == null || store_score < score){
-        gamecenter.submitScore(null, null, { score: score, leaderboardId: "main_leaderboard" });
+        if(window.gamecenter) {
+          gamecenter.submitScore(null, null, { score: score, leaderboardId: "main_leaderboard" });
+        }
         window.localStorage.setItem('best_score', score);
       }
     },
