@@ -12,7 +12,7 @@ var Gol =  (function() {
       paddle,
       score,
       level,
-      pause = false,
+      pause = true,
       frame_count = 0;
 
   function get_screen_size() {
@@ -131,6 +131,11 @@ var Gol =  (function() {
     restart: function() {
       pause = false;
       this.init();
+    },
+
+    start: function() {
+      pause = false;
+      this.loop();
     },
 
     loop: function() {
