@@ -69,5 +69,12 @@ var app = {
         Gol.init();
         open_pause_menu();
       });
+    },
+
+    getPhoneGapPath: function () {
+      'use strict';
+      var path = window.location.pathname;
+      var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
+      return phoneGapPath;
     }
 };

@@ -35,6 +35,14 @@
                         {
                             "xml": "<feature name=\"AdMob\"><param name=\"ios-package\" value=\"CDVAdMob\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"ios-package\" value=\"CDVFile\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -98,6 +106,18 @@
                             "xml": "false",
                             "count": 1
                         }
+                    ],
+                    "AssetsLibrary.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "MobileCoreServices.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
                     ]
                 }
             }
@@ -115,7 +135,14 @@
         },
         "com.rjfun.cordova.plugin.admob": {
             "PACKAGE_NAME": "com.releaseboard.gol"
+        },
+        "org.apache.cordova.media": {
+            "PACKAGE_NAME": "com.releaseboard.gol"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "com.releaseboard.gol"
+        }
+    }
 }

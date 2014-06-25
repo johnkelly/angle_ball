@@ -13,6 +13,9 @@
     <feature name="SocialSharing">
       <param name="ios-package" value="SocialSharing" />
     </feature>
+    <feature name="Media">
+      <param name="ios-package" value="CDVSound" />
+    </feature>
 
     <preferance name="Orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
