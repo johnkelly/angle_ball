@@ -28,24 +28,21 @@ BallRegulator.prototype = {
     }
   },
 
-  reap: function() {
+  reap: function(net) {
     for (var i = 0; i < this.balls.length; i++) {
-      if (this.balls[i].y < 0) {
+      var ball = this.balls[i];
+
+      if (ball.y < 0) {
         Gol.game_over();
-        // delete this.balls[i];
-        // this.balls.splice(i, 1);
-      }else if(this.balls[i].y > this.max_y){
+      }else if(ball.y > this.max_y){
         Gol.game_over();
-        // delete this.balls[i];
-        // this.balls.splice(i, 1);
-      }else if(this.balls[i].x < 0){
+      }else if(ball.x < 0){
         Gol.game_over();
-        // delete this.balls[i];
-        // this.balls.splice(i, 1);
-      }else if(this.balls[i].x > this.max_x){
+      }else if(ball.x > this.max_x){
         Gol.game_over();
-        // delete this.balls[i];
-        // this.balls.splice(i, 1);
+      }else if(net.in_net(ball)){
+        delete ball;
+        this.balls.splice(i, 1);
       }
     }
   },
@@ -60,23 +57,5 @@ BallRegulator.prototype = {
     for (var i = 0; i < this.balls.length; i++) {
       this.balls[i].update(normal);
     }
-  },
-
-  // ctx.fillRect(origin.x - goal_width / 2, 50, goal_width, 35);
-  count_goals: function(origin_x, goal_width) {
-    var goal_start_x = (origin_x - (goal_width / 2));
-    var goal_end_x = (goal_start_x + goal_width);
-
-    var goals = $.grep(this.balls, function(ball) {
-      return (ball.velocity.vy < 0 && ball.x >= goal_start_x && ball.x <= goal_end_x) && (ball.y >= 50 && ball.y <= 85)
-    });
-
-    //TODO Make this work for multiple balls using id?
-    if(goals.length > 0){
-      delete this.balls[0];
-      this.balls.splice(0, 1);
-    }
-
-    return goals.length;
   }
 }

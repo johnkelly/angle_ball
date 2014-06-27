@@ -4,7 +4,6 @@ var Gol =  (function() {
       board       = document.getElementById('gameboard'),
       ctx         = board.getContext('2d'),
       screen_width, screen_height,
-      goal_width  = 200,
       origin      = {
         x: 500,
         y: 350
@@ -37,8 +36,10 @@ var Gol =  (function() {
   }   menu_button
 
   function update() {
-    ballRegulator.reap();
-    score += ballRegulator.count_goals(origin.x, goal_width);
+    if(ballRegulator.balls.length > 0){
+      score += net.count_goals(ballRegulator.balls);
+      ballRegulator.reap(net);
+    }
     ballRegulator.add({
       ctx: ctx,
       frame_count: frame_count
@@ -60,10 +61,8 @@ var Gol =  (function() {
     ctx.fillText("Ball Angle: " + Math.round(NEWTON.to_deg(ballRegulator.balls[0].velocity.theta)), 440, 20);
     ctx.fillText("Ball Vx: " + Math.round(ballRegulator.balls[0].velocity.vx), 540, 20);
     ctx.fillText("Ball Vy: " + Math.round(ballRegulator.balls[0].velocity.vy), 640, 20);
-    ctx.fillRect(origin.x - goal_width / 2, 50, goal_width, 35);
 
-    ctx.fillRect(origin.x, origin.y, 4, 4);
-
+    net.draw();
     ballRegulator.draw();
     paddle.draw();
   }
@@ -83,6 +82,12 @@ var Gol =  (function() {
         canvas: board
       });
       paddle.init();
+
+      net = new Net({
+        ctx: ctx,
+        origin_x: board.width / 2
+      });
+
       ballRegulator = new BallRegulator({
         ctx: ctx,
         origin: {
