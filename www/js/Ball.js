@@ -40,8 +40,6 @@ Ball.prototype = {
   draw: function() {
     this.ctx.fillStyle = "#FFFFFF";
     this.ctx.fillRect(this.x, this.y, this.BALL_RAD, this.BALL_RAD);
-    this.draw_trajectory();
-
   },
 
   move: function() {

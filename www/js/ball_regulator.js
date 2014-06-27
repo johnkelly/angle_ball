@@ -57,5 +57,11 @@ BallRegulator.prototype = {
     for (var i = 0; i < this.balls.length; i++) {
       this.balls[i].update(normal);
     }
+  },
+
+  draw_trajectories: function() {
+    for (var i = 0; i < this.balls.length; i++) {
+      this.balls[i].draw_trajectory();
+    }
   }
 }

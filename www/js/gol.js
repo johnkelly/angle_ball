@@ -10,7 +10,7 @@ var Gol =  (function() {
       },
       paddle,
       score,
-      level,
+      level = 1,
       pause = true,
       frame_count = 0;
 
@@ -38,7 +38,9 @@ var Gol =  (function() {
   function update() {
     if(ballRegulator.balls.length > 0){
       score += net.count_goals(ballRegulator.balls);
+      level = difficultyRegulator.get_level(score, level);
       ballRegulator.reap(net);
+      net = difficultyRegulator.adjust_net(net);
     }
     ballRegulator.add({
       ctx: ctx,
@@ -64,6 +66,7 @@ var Gol =  (function() {
 
     net.draw();
     ballRegulator.draw();
+    difficultyRegulator.draw({ ballRegulator: ballRegulator });
     paddle.draw();
   }
 
@@ -72,6 +75,7 @@ var Gol =  (function() {
       get_screen_size();
       score = 0;
       level = 1;
+      difficultyRegulator = new DifficultyRegulator();
       requestAnimationFrame(Gol.loop);
       paddle = new Paddle({
         ctx: ctx,
