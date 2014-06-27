@@ -1,8 +1,3 @@
-//Level 1 show trajectory score 1
-//Level 2 hide trajctory score 5
-//level 3 shrink net 25%
-//level 4 shrink net 50%
-
 function DifficultyRegulator() {
   this.level = 1;
   this.level_changed = false;

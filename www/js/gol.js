@@ -119,6 +119,7 @@ var Gol =  (function() {
       this.set_best_score(score);
       $('#game').hide();
       $('#game_over_score').text(score);
+      $('#game_over_level').text(level);
       $('#game_over_best').text(this.get_best_score());
       $('#game_over_menu').show();
     },
