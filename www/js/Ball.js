@@ -12,7 +12,6 @@ function Ball(config) {
   this.outbound = false;
   this.exit_coordinates = null;
   this.current_normal = null;
-  this.sound = false;
 }
 
 Ball.prototype = {
@@ -22,11 +21,6 @@ Ball.prototype = {
   },
 
   update: function(normal) {
-    if(typeof(Media) != 'undefined' && Math.floor(this.end_y - this.y) <= 80 && this.sound == false){
-      var Bounce = new Media(app.getPhoneGapPath() + "bounce.mp3");
-      Bounce.play();
-      this.sound = true;
-    }
     if(Math.floor(this.end_y - this.y) <= 3 && this.outbound == false){
       this.reflect(normal);
     }
