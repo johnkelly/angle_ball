@@ -134,6 +134,10 @@ var Gol =  (function() {
       }
     },
 
+    get_score: function() {
+      return score;
+    },
+
     get_best_score: function() {
       return window.localStorage.getItem('best_score');
     },
