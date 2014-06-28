@@ -57,19 +57,19 @@ DifficultyRegulator.prototype = {
         return width;
         break;
       case 3:
-        return (width * .85);
+        return (width * .90);
         break;
       case 4:
-        return (width * .75);
+        return (width * .85);
         break;
       case 5:
-        return (width * .65);
+        return (width * .80);
         break;
       case 6:
-        return (width * .55);
+        return (width * .75);
         break;
       case 7:
-        return (width * .35);
+        return (width * .70);
         break;
     }
   }

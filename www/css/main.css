@@ -5,11 +5,13 @@
 
 #menu_button {
   position: absolute;
-  padding: 10px;
   z-index: 99;
   width: 5em;
   font-size: 12px;
-  border: none;
+  left: calc(50% - 2.5em);
+  height: 35px;
+  border-top: none;
+  border-bottom: none;
 }
 
 button {

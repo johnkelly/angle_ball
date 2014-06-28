@@ -56,13 +56,9 @@ var Gol =  (function() {
     ctx.fillRect(0, 0, board.width, board.height);
 
     ctx.fillStyle = "#ffffff";
-    ctx.fillText("Score: " + score, 100, 20);
-    ctx.fillText("Level: " + level, 180, 20);
-    ctx.fillText("Angle: " + Math.round(NEWTON.to_deg(paddle.angle)), 260, 20);
-    ctx.fillText("Normal Angle: " + Math.round(NEWTON.to_deg(paddle.normal.theta)), 340, 20);
-    ctx.fillText("Ball Angle: " + Math.round(NEWTON.to_deg(ballRegulator.balls[0].velocity.theta)), 440, 20);
-    ctx.fillText("Ball Vx: " + Math.round(ballRegulator.balls[0].velocity.vx), 540, 20);
-    ctx.fillText("Ball Vy: " + Math.round(ballRegulator.balls[0].velocity.vy), 640, 20);
+    ctx.font = '40pt Calibri';
+    var score_width = ctx.measureText(score).width;
+    ctx.fillText(score, ((board.width / 2) - (score_width / 2)), ((board.height / 2) + 20));
 
     net.draw();
     ballRegulator.draw();

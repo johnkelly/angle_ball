@@ -6,7 +6,7 @@ function Net(config) {
   this.ctx = config.ctx;
   this.start_x = (config.origin_x - (this.width / 2));
   this.end_x = this.start_x + this.width;
-  this.start_y = 50;
+  this.start_y = 0;
   this.end_y = this.start_y + this.height;
 }
 
