@@ -1,5 +1,5 @@
 function Net(config) {
-  this.width = config.width || 200;
+  this.width = config.width || ((200 * config.origin_x * 2) / 320);
   this.height = config.height || 35;
 
   this.origin_x = config.origin_x;

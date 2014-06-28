@@ -33,7 +33,7 @@ DifficultyRegulator.prototype = {
 
   adjust_net: function(net) {
     if(this.level_changed){
-      new_width = this._calculate_new_width();
+      new_width = this._calculate_new_width(net.width);
 
 
       new_net = new Net({
@@ -48,28 +48,28 @@ DifficultyRegulator.prototype = {
     return net;
   },
 
-  _calculate_new_width: function() {
+  _calculate_new_width: function(width) {
     switch(this.level) {
       case 1:
-        return 200;
+        return width;
         break;
       case 2:
-        return 200;
+        return width;
         break;
       case 3:
-        return 150;
+        return (width * .85);
         break;
       case 4:
-        return 100;
+        return (width * .75);
         break;
       case 5:
-        return 75;
+        return (width * .65);
         break;
       case 6:
-        return 50;
+        return (width * .55);
         break;
       case 7:
-        return 10;
+        return (width * .35);
         break;
     }
   }
