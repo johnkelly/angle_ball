@@ -16,15 +16,23 @@ function Ball(config) {
 
 Ball.prototype = {
   init: function(config) {
+    var raw_angle = Math.atan((this.start_y - this.end_y)/ (this.end_x - this.start_x));
+
+    /**
+    *   Normalize all theta to be in quadrants 3 & 4 (moving down)
+    */
+    if (raw_angle > 0) {
+      raw_angle += Math.PI;
+    }
     this.ctx = config.ctx;
-    this.velocity = new Vector(this.speed, Math.atan((this.end_y - this.start_y)/ (this.end_x - this.start_x)));
+    this.velocity = new Vector(this.speed, raw_angle);
   },
 
   update: function(normal) {
     if(Math.floor(this.end_y - this.y) <= 3 && this.outbound == false){
       this.reflect(normal);
     }
-    if(this.outbound == false && this.current_normal != normal) {
+    if(this.outbound == false) {
       this.current_normal = normal;
       this.exit_coordinates = this.calculate_exit_coordinates(normal);
     }
@@ -45,17 +53,22 @@ Ball.prototype = {
     var new_velocity = this.calculate_reflect(normal);
     this.velocity.vx = new_velocity.vx
     this.velocity.vy = new_velocity.vy
-    this.outbound = true
+    this.velocity.set_components();
+    this.outbound = true;
   },
 
   calculate_reflect: function(normal) {
-    //Vnew = -2*(V dot N)*N + V
-    var normal_vector = new Vector(normal.magnitude, normal.theta);
-    normal_vector.multiply(this.velocity.dot(normal_vector));
-    normal_vector.multiply(-2);
+    //Vnew = V - 2*(V dot N)*N
+    var reflect_vector = this.velocity,
+        norm = normal.normalize(),
+        scale;
+
+    norm.set_angle(-norm.theta);
+    scale = reflect_vector.dot(norm);     
+
     return {
-      vx: (this.velocity.vx + normal_vector.vx),
-      vy: (this.velocity.vy + normal_vector.vy)
+      vx: (this.velocity.vx - 2 * scale * norm.vx),
+      vy: (this.velocity.vy - 2 * scale * norm.vy)
     }
   },
 

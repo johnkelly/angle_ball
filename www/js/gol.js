@@ -77,7 +77,7 @@ var Gol =  (function() {
         ctx: ctx,
         origin: {
           x: board.width / 2,
-          y: board.height - 30
+          y: board.height - 50
         },
         canvas: board
       });
@@ -92,7 +92,7 @@ var Gol =  (function() {
         ctx: ctx,
         origin: {
           x: origin.x,
-          y: board.height - 30
+          y: board.height - 50
         },
         board: {
           height: window.innerHeight,

@@ -13,8 +13,7 @@ Paddle.prototype = {
   init: function() {
     var this_obj = this;
     this.draw();
-    var normal_angle = (this.angle >= Math.PI) ? (this.angle - (2 * Math.PI)) : this.angle
-    this.normal = new Vector(1, (normal_angle + (Math.PI / 2)), 1);
+    this.normal = new Vector(1, (this.angle + Math.PI / 2));
 
     $(this.canvas).on('mousedown', function(e) {
       if (this_obj.click_on(e)) {
@@ -61,32 +60,42 @@ Paddle.prototype = {
 
     // Set location for paddle to be drawn
     this.ctx.translate(this.center.x, this.center.y);
-    this.ctx.rotate(this.angle);
+    this.ctx.rotate(-this.angle);
 
 
     this.ctx.fillRect(0 - this.width / 2, 0 - this.height / 2, this.width, this.height);
 
     // Pop the translation/rotation
-    this.ctx.rotate(-this.angle);
+    this.ctx.rotate(this.angle);
     this.ctx.translate(-(this.center.x), -(this.center.y));
   },
 
   click_on: function(evt) {
     var hit = true,
-        x_radius = (this.width / 2) * Math.cos(this.angle) + this.TOUCH_SLOP;
+        x_radius = (this.width / 2) * Math.abs(Math.cos(this.angle)) + this.TOUCH_SLOP,
+        y_radius = (this.width / 2) * Math.abs(Math.sin(this.angle)) + this.TOUCH_SLOP;
 
-    if (evt.pageX - this.center.x > x_radius || evt.pageX - this.center.x < -x_radius) {
+    /** Only pay attention to clicks in the area of the paddle
+    *   when updating paddle angle
+    */
+    if (evt.pageX - this.center.x > x_radius || evt.pageX - this.center.x < -x_radius || evt.pageY - this.center.y > y_radius || evt.pageY - this.center.y < -y_radius) {
       hit = false;
     }
-
 
     return hit;
   },
 
   update_angle: function(evt) {
-    this.angle = this.normal.theta = Math.tan((evt.pageY - this.center.y) / (evt.pageX - this.center.x));
-    var normal_angle = (this.angle >= Math.PI) ? (this.angle - (2 * Math.PI)) : this.angle
-    this.normal = new Vector(1, (normal_angle + (Math.PI / 2)));
+    var angle = Math.tan(-(evt.pageY - this.center.y) / (evt.pageX - this.center.x));
+
+    /**
+    *   Restrict paddle movement to PI/4 rads in either
+    *   direction
+    */ 
+    if (angle < (Math.PI / 4) && -(Math.PI / 4) < angle) {
+      this.normal.set_angle(this.angle + Math.PI / 2); 
+      this.angle = angle;     
+    }
     return this;
   }
 }
