@@ -45,7 +45,7 @@ Paddle.prototype = {
 
     $(this.canvas).on('touchmove', function(e) {
       if (this_obj.moving === true) {
-        this_obj.update_angle(e);
+        this_obj.update_angle(e.originalEvent);
       }
     });
 
