@@ -33,13 +33,13 @@ BallRegulator.prototype = {
       var ball = this.balls[i];
 
       if (ball.y < 0) {
-        Gol.game_over();
+        AngleBall.game_over();
       }else if(ball.y > this.max_y){
-        Gol.game_over();
+        AngleBall.game_over();
       }else if(ball.x < 0){
-        Gol.game_over();
+        AngleBall.game_over();
       }else if(ball.x > this.max_x){
-        Gol.game_over();
+        AngleBall.game_over();
       }else if(net.in_net(ball)){
         delete ball;
         this.balls.splice(i, 1);

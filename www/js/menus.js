@@ -1,6 +1,6 @@
 open_pause_menu = function() {
   $('#menu_button').on('click', function(event, ui) {
-    Gol.pause();
+    AngleBall.pause();
     $('#game').hide();
     $('#pause_menu').show();
     $('#start_button').hide();
@@ -8,14 +8,14 @@ open_pause_menu = function() {
 
   $('#start_button').on('click', function(event, ui) {
     $('#start_button').hide();
-    Gol.start();
+    AngleBall.start();
   })
 
   $('#unpause_button').on('click', function(event, ui) {
     $('#start_button').hide();
     $('#pause_menu').hide();
     $('#game').show();
-    Gol.unpause();
+    AngleBall.unpause();
   })
 
   $('.restart_button').on('click', function(event, ui) {
@@ -23,7 +23,7 @@ open_pause_menu = function() {
     $('#start_button').hide();
     $('#pause_menu').hide();
     $('#game').show();
-    Gol.restart();
+    AngleBall.restart();
   })
   $('.leaderboard_button').on('click', function(event, ui) {
     gamecenter.showLeaderboard(null, null, { period: "today", leaderboardId: "main_leaderboard" });

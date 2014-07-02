@@ -1,4 +1,4 @@
-var Gol =  (function() {
+var AngleBall =  (function() {
   var game_width  = 500,
       game_height = 700,
       board       = document.getElementById('gameboard'),
@@ -72,7 +72,7 @@ var Gol =  (function() {
       score = 0;
       level = 1;
       difficultyRegulator = new DifficultyRegulator();
-      requestAnimationFrame(Gol.loop);
+      requestAnimationFrame(AngleBall.loop);
       paddle = new Paddle({
         ctx: ctx,
         origin: {
@@ -152,7 +152,7 @@ var Gol =  (function() {
       update();
       draw();
       if(pause == false){
-        requestAnimationFrame(Gol.loop);
+        requestAnimationFrame(AngleBall.loop);
       }
     }
   }
