@@ -17,6 +17,9 @@
  * under the License.
  */
 
+var bounceSound = document.getElementById('bounce_sound');
+bounceSound.load();
+
 $(function() {
     FastClick.attach(document.body);
 });
