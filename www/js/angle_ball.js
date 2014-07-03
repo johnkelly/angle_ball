@@ -111,6 +111,8 @@ var AngleBall =  (function() {
     },
 
     game_over: function() {
+      gameOverSound.load();
+      gameOverSound.play();
       pause = true;
       this.set_best_score(score);
       $('#game').hide();

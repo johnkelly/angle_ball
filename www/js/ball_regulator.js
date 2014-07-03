@@ -41,6 +41,8 @@ BallRegulator.prototype = {
       }else if(ball.x > this.max_x){
         AngleBall.game_over();
       }else if(net.in_net(ball)){
+        goalSound.load();
+        goalSound.play();
         delete ball;
         this.balls.splice(i, 1);
       }

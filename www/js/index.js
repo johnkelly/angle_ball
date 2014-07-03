@@ -18,7 +18,11 @@
  */
 
 var bounceSound = document.getElementById('bounce_sound');
+var goalSound = document.getElementById('goal_sound');
+var gameOverSound = document.getElementById('gameover_sound');
 bounceSound.load();
+goalSound.load();
+gameOverSound.load();
 
 $(function() {
     FastClick.attach(document.body);
