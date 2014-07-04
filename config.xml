@@ -21,4 +21,5 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="fullscreen" value="true" />
     <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="auto-hide-splash-screen" value="false" />
 </widget>
