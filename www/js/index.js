@@ -73,6 +73,9 @@ var app = {
         document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
         AngleBall.init();
         open_pause_menu();
+        if(app.has_read_instructions() == false) {
+          open_instructions();
+        }
       });
     },
 
@@ -81,5 +84,13 @@ var app = {
       var path = window.location.pathname;
       var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
       return phoneGapPath;
+    },
+
+    has_read_instructions: function() {
+      return (window.localStorage.getItem('has_read_instructions') === "true");
+    },
+
+    set_has_read_instructions: function() {
+      window.localStorage.setItem('has_read_instructions', true);
     }
 };

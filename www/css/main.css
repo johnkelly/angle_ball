@@ -112,3 +112,23 @@ div#game_over_score_box {
   font-weight: 200;
   text-shadow: 0 0 .3em #db6336;
 }
+
+.instructions {
+  z-index: 99;
+  position: absolute;
+  display: none;
+  text-align: center;
+  background: transparent;
+}
+
+.instructions div {
+  position: relative;
+  top: 20%;
+  padding: 1em;
+}
+
+.instructions h2 {
+  color: #FFF;
+  padding-bottom: 2em;
+  line-height: 1.5;
+}

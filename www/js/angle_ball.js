@@ -57,8 +57,10 @@ var AngleBall =  (function() {
 
     ctx.fillStyle = "#ffffff";
     ctx.font = '40pt Calibri';
-    var score_width = ctx.measureText(score).width;
-    ctx.fillText(score, ((board.width / 2) - (score_width / 2)), ((board.height / 2) + 20));
+    if(score > 0){
+      var score_width = ctx.measureText(score).width;
+      ctx.fillText(score, ((board.width / 2) - (score_width / 2)), ((board.height / 2) + 20));
+    }
 
     net.draw();
     ballRegulator.draw();
