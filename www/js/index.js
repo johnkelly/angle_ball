@@ -38,7 +38,7 @@ var app = {
 
       StatusBar.hide();
       gamecenter.auth(null, null);
-      var admob_ios_key = 'ca-app-pub-4276911451927978/9172100847';
+      var admob_ios_key = 'ca-app-pub-4276911451927978/6847966045';
       var admob_android_key = 'ca-app-pub-4276911451927978/9172100847';
       var adId = (navigator.userAgent.indexOf('Android') >=0) ? admob_android_key : admob_ios_key;
 
@@ -54,7 +54,7 @@ var app = {
             },
             function() {
               am.requestAd(
-                { 'isTesting':true },
+                { 'isTesting': false },
                 function(){
                   am.showAd( true );
                 },

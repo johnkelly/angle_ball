@@ -26,6 +26,6 @@ open_pause_menu = function() {
     AngleBall.restart();
   })
   $('.leaderboard_button').on('click', function(event, ui) {
-    gamecenter.showLeaderboard(null, null, { period: "today", leaderboardId: "main_leaderboard" });
+    gamecenter.showLeaderboard(null, null, { period: "today", leaderboardId: "angle_ball_leaderboard" });
   })
 }

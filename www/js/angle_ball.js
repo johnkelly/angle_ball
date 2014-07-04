@@ -125,7 +125,7 @@ var AngleBall =  (function() {
       var store_score = window.localStorage.getItem('best_score');
       if(store_score == null || store_score < score){
         if(window.gamecenter) {
-          gamecenter.submitScore(null, null, { score: score, leaderboardId: "main_leaderboard" });
+          gamecenter.submitScore(null, null, { score: score, leaderboardId: "angle_ball_leaderboard" });
         }
         window.localStorage.setItem('best_score', score);
       }
