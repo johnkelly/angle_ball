@@ -30,7 +30,6 @@ Ball.prototype = {
 
   update: function(normal) {
     if(Math.floor(this.end_y - this.y) <= 3 && this.outbound == false){
-      bounceSound.load();
       bounceSound.play();
       this.reflect(normal);
     }

@@ -17,13 +17,6 @@
  * under the License.
  */
 
-var bounceSound = document.getElementById('bounce_sound');
-var goalSound = document.getElementById('goal_sound');
-var gameOverSound = document.getElementById('gameover_sound');
-bounceSound.load();
-goalSound.load();
-gameOverSound.load();
-
 $(function() {
     FastClick.attach(document.body);
 });
@@ -39,6 +32,10 @@ var app = {
     },
 
     onDeviceReady: function() {
+      window.goalSound = new Media("goal.mp3");
+      window.bounceSound = new Media("bounce.mp3");
+      window.gameOverSound = new Media("gameover.mp3");
+
       StatusBar.hide();
       gamecenter.auth(null, null);
       var admob_ios_key = 'ca-app-pub-4276911451927978/9172100847';
