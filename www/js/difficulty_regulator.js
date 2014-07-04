@@ -10,13 +10,13 @@ DifficultyRegulator.prototype = {
       this.level = 2;
     } else if(score >= 5 && score < 10){
       this.level = 3;
-    } else if(score >= 10 && score < 50){
+    } else if(score >= 10 && score < 15){
       this.level = 4;
-    } else if(score >= 50 && score < 100){
+    } else if(score >= 15 && score < 20){
       this.level = 5;
-    } else if(score >= 100 && score < 500){
+    } else if(score >= 20 && score < 25){
       this.level = 6;
-    } else if(score >= 500){
+    } else if(score >= 25){
       this.level = 7;
     } else {
       this.level = 1;
