@@ -1,6 +1,6 @@
 function Paddle(config) {
   this.width = 150;
-  this.height = 1;
+  this.height = 4;
   this.color = '#FFFFFF';
   this.angle = 0;
   this.ctx = config.ctx;

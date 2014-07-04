@@ -3,6 +3,8 @@ var AngleBall =  (function() {
       game_height = 700,
       board       = document.getElementById('gameboard'),
       ctx         = board.getContext('2d'),
+      background  = document.getElementById('background'),
+      back_ctx    = background.getContext('2d'),
       screen_width, screen_height,
       origin      = {
         x: 500,
@@ -18,12 +20,12 @@ var AngleBall =  (function() {
     var w = 0,
         h = 0;
 
-    board.width = w = window.innerWidth;
+    board.width = background.width = w = window.innerWidth;
 
     if(window.innerHeight <= 568) {
-      board.height = h = (window.innerHeight - 50);
+      board.height = background.height = h = (window.innerHeight - 50);
     } else {
-      board.height = h = (window.innerHeight - 90);
+      board.height = background.height = h = (window.innerHeight - 90);
     }
 
     origin.x = Math.floor(w / 2);
@@ -52,8 +54,6 @@ var AngleBall =  (function() {
 
   function draw() {
     ctx.clearRect(0, 0, board.width, board.height);
-    ctx. fillStyle = "#000000";
-    ctx.fillRect(0, 0, board.width, board.height);
 
     ctx.fillStyle = "#ffffff";
     ctx.font = '40pt Calibri';
@@ -68,6 +68,7 @@ var AngleBall =  (function() {
 
   return {
     init: function() {
+      var background_grad;
       get_screen_size();
       score = 0;
       level = 1;
@@ -99,6 +100,12 @@ var AngleBall =  (function() {
           width: window.innerWidth
         }
       });
+
+      background_grad = back_ctx.createLinearGradient(0, 0, 0, board.height);
+      background_grad.addColorStop(0, "#2e333a");
+      background_grad.addColorStop(1, "#252733");
+      back_ctx.fillStyle = background_grad;
+      back_ctx.fillRect(0, 0, board.width, board.height);
     },
 
     pause: function() {

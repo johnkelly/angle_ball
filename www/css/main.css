@@ -8,6 +8,20 @@
   -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
 }
 
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#background {
+  z-index: 0;
+}
+
+#gameboard {
+  z-index: 1;
+}
+
 #menu_button {
   position: absolute;
   z-index: 99;
@@ -38,7 +52,6 @@ button {
 
 #game_over_score_box {
   font-family: Arial;
-  color: #000;
   font-size: 20px;
   background: #FFF;
   padding: .5em 0em .5em 0em;
@@ -59,16 +72,43 @@ button:hover {
 .menu {
   display: none;
   text-align: center;
-  background: #000;
+  background: #373c44; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  #373c44 0%, #252733 69%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#373c44), color-stop(69%,#252733)); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  #373c44 0%,#252733 69%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  #373c44 0%,#252733 69%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  #373c44 0%,#252733 69%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  #373c44 0%,#252733 69%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#373c44', endColorstr='#252733',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 
 .menu ul li {
-  padding: 1em 1em;
+  padding: .5em .5em;
+}
+
+.menu ul li > div, button {
+  border-radius: .5em;
+  -moz-border-radius: .5em;
+  -webkit-border-radius: .5em;
+  border: .1em solid #fafafa;
+  background-color: #fafafa;
+  box-shadow: 0 0 .2em 0 #000000, inset 0 0 .5em 0 #aaaaaa;
+  color: #db633f;
+}
+
+div#game_over_score_box {
+  color: #db633f;
+}
+
+.menu ul li div span {
+  color: #000000;
 }
 
 .menu h1 {
-  color: #FFF;
+  color: #fff;
   font-size: 3em;
   font-family: Arial;
   font-weight: 200;
+  text-shadow: 0 0 .3em #db6336;
 }

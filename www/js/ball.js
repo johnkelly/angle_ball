@@ -43,8 +43,10 @@ Ball.prototype = {
   },
 
   draw: function() {
-    this.ctx.fillStyle = "#FFFFFF";
-    this.ctx.fillRect(this.x, this.y, this.BALL_RAD, this.BALL_RAD);
+    this.ctx.beginPath();
+    this.ctx.arc(this.x, this.y - this.BALL_RAD, this.BALL_RAD, 0, 2 * Math.PI, false);
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fill();
   },
 
   move: function() {
@@ -87,7 +89,7 @@ Ball.prototype = {
       this.ctx.beginPath();
       this.ctx.moveTo(this.x, this.y);
       this.ctx.lineTo(this.end_x, this.end_y);
-      this.ctx.strokeStyle = '#FFFFFF';
+      this.ctx.strokeStyle = '#41728e';
       this.ctx.stroke();
     }
 
@@ -95,7 +97,7 @@ Ball.prototype = {
       this.ctx.beginPath();
       this.ctx.moveTo(this.end_x, this.end_y);
       this.ctx.lineTo(this.exit_coordinates.x, this.exit_coordinates.y);
-      this.ctx.strokeStyle = '#FFFFFF';
+      this.ctx.strokeStyle = '#41728e';
       this.ctx.stroke();
     }
   }
