@@ -8,6 +8,7 @@ function Net(config) {
   this.end_x = this.start_x + this.width;
   this.start_y = 0;
   this.end_y = this.start_y + this.height;
+  this.image = document.getElementById('goal');
 }
 
 Net.prototype = {
@@ -29,6 +30,6 @@ Net.prototype = {
   },
 
   draw: function() {
-    this.ctx.fillRect(this.start_x, this.start_y, this.width, this.height);
+    this.ctx.drawImage(this.image, 0, 0, this.width, this.height, this.start_x, 0, this.width, this.height);
   }
 }

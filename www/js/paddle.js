@@ -56,7 +56,7 @@ Paddle.prototype = {
 
 
   draw: function() {
-    this.ctx.fillStyle = this.color;
+    this.ctx.fillStyle = "#ffe87c";
 
     // Set location for paddle to be drawn
     this.ctx.translate(this.center.x, this.center.y);
