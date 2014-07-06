@@ -121,7 +121,7 @@ var AngleBall =  (function() {
 
     game_over: function() {
       if(typeof(gameOverSound) != 'undefined'){
-        gameOverSound.play();
+        gameOverSound.play({ playAudioWhenScreenIsLocked : false });
       }
       pause = true;
       this.set_best_score(score);

@@ -42,7 +42,7 @@ BallRegulator.prototype = {
         AngleBall.game_over();
       }else if(net.in_net(ball)){
         if(typeof(goalSound) != 'undefined'){
-          goalSound.play();
+          goalSound.play({ playAudioWhenScreenIsLocked : false });
         }
         delete ball;
         this.balls.splice(i, 1);

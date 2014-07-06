@@ -31,7 +31,7 @@ Ball.prototype = {
   update: function(normal) {
     if(Math.floor(this.end_y - this.y) <= 3 && this.outbound == false){
       if(typeof(bounceSound) != 'undefined'){
-        bounceSound.play();
+        bounceSound.play({ playAudioWhenScreenIsLocked : false });
       }
       this.reflect(normal);
     }
