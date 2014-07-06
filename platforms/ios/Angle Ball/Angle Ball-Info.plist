@@ -30,8 +30,6 @@
     <string>1.0.0</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
-    <key>NSMainNibFile~ipad</key>
-    <string>MainViewController</string>
     <key>UIRequiredDeviceCapabilities</key>
     <array>
       <string>gamekit</string>
