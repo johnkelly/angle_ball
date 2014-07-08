@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 *:not(input):not(textarea) {
@@ -87,7 +88,16 @@ button:hover {
   padding: .5em .5em;
 }
 
-.menu ul li > div, button {
+button {
+  border-radius: .5em;
+  -moz-border-radius: .5em;
+  -webkit-border-radius: .5em;
+  background-color: #fafafa;
+  color: #db633f;
+  border-style: none;
+}
+
+.menu ul li > div, .menu button {
   border-radius: .5em;
   -moz-border-radius: .5em;
   -webkit-border-radius: .5em;
