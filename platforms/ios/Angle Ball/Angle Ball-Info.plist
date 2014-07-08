@@ -16,10 +16,16 @@
       <dict>
         <key>CFBundleIconFiles</key>
         <array>
-          <string>icon-small</string>
           <string>icon-40</string>
+          <string>icon-small</string>
           <string>icon-60</string>
+          <string>icon.png</string>
+          <string>icon@2x</string>
+          <string>icon-72</string>
+          <string>icon-72@2x</string>
         </array>
+        <key>UIPrerenderedIcon</key>
+        <false/>
       </dict>
     </dict>
     <key>CFBundleIcons~ipad</key>
@@ -29,9 +35,17 @@
         <key>CFBundleIconFiles</key>
         <array>
           <string>icon-small</string>
-          <string>icon-76</string>
           <string>icon-40</string>
+          <string>icon-50</string>
+          <string>icon-76</string>
+          <string>icon-60</string>
+          <string>icon</string>
+          <string>icon@2x</string>
+          <string>icon-72</string>
+          <string>icon-72@2x</string>
         </array>
+        <key>UIPrerenderedIcon</key>
+        <false/>
       </dict>
     </dict>
     <key>CFBundleIdentifier</key>
@@ -50,6 +64,10 @@
     <string>1.0.0</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
+    <key>NSMainNibFile</key>
+    <string></string>
+    <key>NSMainNibFile~ipad</key>
+    <string></string>
     <key>UILaunchImages</key>
     <array>
       <dict>
@@ -60,7 +78,7 @@
         <key>UILaunchImageOrientation</key>
         <string>Portrait</string>
         <key>UILaunchImageSize</key>
-        <string>{320, 568}</string>
+        <string>{320, 480}</string>
       </dict>
       <dict>
         <key>UILaunchImageMinimumOSVersion</key>
@@ -70,7 +88,7 @@
         <key>UILaunchImageOrientation</key>
         <string>Portrait</string>
         <key>UILaunchImageSize</key>
-        <string>{320, 480}</string>
+        <string>{320, 568}</string>
       </dict>
     </array>
     <key>UILaunchImages~ipad</key>
@@ -103,7 +121,7 @@
         <key>UILaunchImageOrientation</key>
         <string>Portrait</string>
         <key>UILaunchImageSize</key>
-        <string>{320, 568}</string>
+        <string>{320, 480}</string>
       </dict>
       <dict>
         <key>UILaunchImageMinimumOSVersion</key>
@@ -113,7 +131,7 @@
         <key>UILaunchImageOrientation</key>
         <string>Portrait</string>
         <key>UILaunchImageSize</key>
-        <string>{320, 480}</string>
+        <string>{320, 568}</string>
       </dict>
     </array>
     <key>UIRequiredDeviceCapabilities</key>
@@ -121,6 +139,8 @@
       <string>gamekit</string>
     </array>
     <key>UIStatusBarHidden</key>
+    <true/>
+    <key>UIStatusBarHidden~ipad</key>
     <true/>
     <key>UISupportedInterfaceOrientations</key>
     <array>
