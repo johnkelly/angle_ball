@@ -18,7 +18,7 @@ BallRegulator.prototype = {
         start_y: -1,
         end_x: this.origin_x,
         end_y: this.origin_y,
-        speed: 5,
+        speed: 10,
         max_x: this.max_x
       });
       newBall.init({
