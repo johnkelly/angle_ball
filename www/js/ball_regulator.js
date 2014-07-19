@@ -5,6 +5,7 @@ function BallRegulator(config) {
   this.max_x = config.board.width;
   this.max_y = config.board.height;
   this.current_id = -1;
+  this.speed = 7;
 }
 
 BallRegulator.prototype = {
@@ -18,7 +19,7 @@ BallRegulator.prototype = {
         start_y: -1,
         end_x: this.origin_x,
         end_y: this.origin_y,
-        speed: 7,
+        speed: this.speed,
         max_x: this.max_x
       });
       newBall.init({

@@ -35,13 +35,14 @@ var AngleBall =  (function() {
       width: screen_width,
       height: screen_height
     }
-  }   menu_button
+  }
 
   function update() {
     if(ballRegulator.balls.length > 0){
       score += net.count_goals(ballRegulator.balls);
       level = difficultyRegulator.get_level(score, level);
       ballRegulator.reap(net);
+      difficultyRegulator.adjust_speed(ballRegulator);
       net = difficultyRegulator.adjust_net(net);
     }
     ballRegulator.add({

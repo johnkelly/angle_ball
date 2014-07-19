@@ -16,8 +16,12 @@ DifficultyRegulator.prototype = {
       this.level = 5;
     } else if(score >= 20 && score < 25){
       this.level = 6;
-    } else if(score >= 25){
+    } else if(score >= 25 && score < 30){
       this.level = 7;
+    } else if(score >= 30 && score < 50){
+      this.level = 8;
+    } else if(score >= 50){
+      this.level = 9;
     } else {
       this.level = 1;
     }
@@ -48,6 +52,12 @@ DifficultyRegulator.prototype = {
     return net;
   },
 
+  adjust_speed: function(ballRegulator) {
+    if(this.level_changed && this.level > 7){
+      ballRegulator.speed +=1
+    }
+  },
+
   _calculate_new_width: function(width) {
     switch(this.level) {
       case 1:
@@ -69,6 +79,12 @@ DifficultyRegulator.prototype = {
         return (width * .75);
         break;
       case 7:
+        return (width * .70);
+        break;
+      case 8:
+        return (width * .70);
+        break;
+      case 9:
         return (width * .70);
         break;
     }
