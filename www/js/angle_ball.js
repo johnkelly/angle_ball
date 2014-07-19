@@ -136,7 +136,9 @@ var AngleBall =  (function() {
     set_best_score: function(score) {
       var store_score = window.localStorage.getItem('best_score');
       if(store_score == null || store_score < score){
-        if(window.gamecenter) {
+        if(navigator.userAgent.indexOf('Android') >=0){
+          //Android Gamecenter
+        } else if(window.gamecenter) {
           gamecenter.submitScore(null, null, { score: score, leaderboardId: "angle_ball_leaderboard" });
         }
         window.localStorage.setItem('best_score', score);

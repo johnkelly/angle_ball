@@ -37,7 +37,13 @@ var app = {
       window.gameOverSound = new Media("gameover.mp3");
 
       StatusBar.hide();
-      gamecenter.auth(null, null);
+
+      if(navigator.userAgent.indexOf('Android') >=0){
+        //Android Gamecenter
+      } else if(window.gamecenter) {
+        gamecenter.auth(null, null);
+      }
+
       var admob_ios_key = 'ca-app-pub-4276911451927978/6847966045';
       var admob_android_key = 'ca-app-pub-4276911451927978/7899760048';
       var adId = (navigator.userAgent.indexOf('Android') >=0) ? admob_android_key : admob_ios_key;

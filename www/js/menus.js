@@ -27,7 +27,11 @@ open_pause_menu = function() {
   })
 
   $('.leaderboard_button').on('click', function(event, ui) {
-    gamecenter.showLeaderboard(null, null, { period: "today", leaderboardId: "angle_ball_leaderboard" });
+    if(navigator.userAgent.indexOf('Android') >=0){
+      //Android Gamecenter
+    } else if(window.gamecenter) {
+      gamecenter.showLeaderboard(null, null, { period: "today", leaderboardId: "angle_ball_leaderboard" });
+    }
   })
 }
 
