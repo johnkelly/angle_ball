@@ -5,76 +5,8 @@
     },
     "config_munge": {
         "files": {
-            "config.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"SocialSharing\"><param name=\"ios-package\" value=\"SocialSharing\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"GameCenter\"><param name=\"ios-package\" value=\"GameCenter\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" onload=\"true\" value=\"CDVStatusBar\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarBackgroundColor\" value=\"#000000\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"AdMob\"><param name=\"ios-package\" value=\"CDVAdMob\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"File\"><param name=\"ios-package\" value=\"CDVFile\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
             "framework": {
                 "parents": {
-                    "Social.framework": [
-                        {
-                            "xml": "true",
-                            "count": 1
-                        }
-                    ],
-                    "MessageUI.framework": [
-                        {
-                            "xml": "true",
-                            "count": 1
-                        },
-                        {
-                            "xml": "false",
-                            "count": 1
-                        }
-                    ],
-                    "GameKit.framework": [
-                        {
-                            "xml": "false",
-                            "count": 1
-                        }
-                    ],
                     "StoreKit.framework": [
                         {
                             "xml": "false",
@@ -84,6 +16,16 @@
                     "AudioToolbox.framework": [
                         {
                             "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "MessageUI.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        },
+                        {
+                            "xml": "true",
                             "count": 1
                         }
                     ],
@@ -111,6 +53,12 @@
                             "count": 1
                         }
                     ],
+                    "Social.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
+                    ],
                     "AssetsLibrary.framework": [
                         {
                             "xml": "false",
@@ -122,22 +70,74 @@
                             "xml": "false",
                             "count": 1
                         }
+                    ],
+                    "GameKit.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"AdMob\"><param name=\"ios-package\" value=\"CDVAdMob\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SocialSharing\"><param name=\"ios-package\" value=\"SocialSharing\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"ios-package\" value=\"CDVFile\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" onload=\"true\" value=\"CDVStatusBar\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarBackgroundColor\" value=\"#000000\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"GameCenter\"><param name=\"ios-package\" value=\"GameCenter\" /></feature>",
+                            "count": 1
+                        }
                     ]
                 }
             }
         }
     },
     "installed_plugins": {
-        "nl.x-services.plugins.socialsharing": {
-            "PACKAGE_NAME": "angleball"
-        },
-        "uk.co.ilee.gamecenter": {
-            "PACKAGE_NAME": "angleball"
-        },
-        "org.apache.cordova.statusbar": {
+        "com.google.playservices": {
             "PACKAGE_NAME": "angleball"
         },
         "com.rjfun.cordova.plugin.admob": {
+            "PACKAGE_NAME": "angleball"
+        },
+        "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "angleball"
+        },
+        "org.apache.cordova.file": {
             "PACKAGE_NAME": "angleball"
         },
         "org.apache.cordova.media": {
@@ -145,11 +145,13 @@
         },
         "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "angleball"
-        }
-    },
-    "dependent_plugins": {
-        "org.apache.cordova.file": {
+        },
+        "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "angleball"
+        },
+        "uk.co.ilee.gamecenter": {
             "PACKAGE_NAME": "angleball"
         }
-    }
+    },
+    "dependent_plugins": {}
 }

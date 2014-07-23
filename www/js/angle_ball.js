@@ -14,7 +14,8 @@ var AngleBall =  (function() {
       score,
       level = 1,
       pause = true,
-      frame_count = 0;
+      frame_count = 0,
+      first_load = true;
 
   function get_screen_size() {
     var w = 0,
@@ -71,44 +72,12 @@ var AngleBall =  (function() {
 
   return {
     init: function() {
-      var background_grad;
-      get_screen_size();
-      score = 0;
-      level = 1;
-      difficultyRegulator = new DifficultyRegulator();
-      requestAnimationFrame(AngleBall.loop);
-      paddle = new Paddle({
-        ctx: ctx,
-        origin: {
-          x: board.width / 2,
-          y: board.height - 50
-        },
-        canvas: board
-      });
-      paddle.init();
-
-      net = new Net({
-        ctx: ctx,
-        origin_x: board.width / 2
-      });
-
-      ballRegulator = new BallRegulator({
-        ctx: ctx,
-        origin: {
-          x: origin.x,
-          y: board.height - 50
-        },
-        board: {
-          height: window.innerHeight,
-          width: window.innerWidth
-        }
-      });
-
-      background_grad = back_ctx.createLinearGradient(0, 0, 0, board.height);
-      background_grad.addColorStop(0, "#2e333a");
-      background_grad.addColorStop(1, "#252733");
-      back_ctx.fillStyle = background_grad;
-      back_ctx.fillRect(0, 0, board.width, board.height);
+      if(first_load) {
+        setTimeout(this._init_game, 300);
+        first_load = false;
+      } else {
+        this._init_game();
+      }
     },
 
     pause: function() {
@@ -169,6 +138,47 @@ var AngleBall =  (function() {
       if(pause == false){
         requestAnimationFrame(AngleBall.loop);
       }
+    },
+
+    _init_game: function() {
+      var background_grad;
+      get_screen_size();
+      score = 0;
+      level = 1;
+      difficultyRegulator = new DifficultyRegulator();
+      requestAnimationFrame(AngleBall.loop);
+      paddle = new Paddle({
+        ctx: ctx,
+             origin: {
+               x: board.width / 2,
+             y: board.height - 50
+             },
+             canvas: board
+      });
+      paddle.init();
+
+      net = new Net({
+        ctx: ctx,
+          origin_x: board.width / 2
+      });
+
+      ballRegulator = new BallRegulator({
+        ctx: ctx,
+                    origin: {
+                      x: origin.x,
+                    y: board.height - 50
+                    },
+                    board: {
+                      height: window.innerHeight,
+                    width: window.innerWidth
+                    }
+      });
+
+      background_grad = back_ctx.createLinearGradient(0, 0, 0, board.height);
+      background_grad.addColorStop(0, "#2e333a");
+      background_grad.addColorStop(1, "#252733");
+      back_ctx.fillStyle = background_grad;
+      back_ctx.fillRect(0, 0, board.width, board.height);
     }
   }
 })();
