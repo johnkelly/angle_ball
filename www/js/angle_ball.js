@@ -73,7 +73,10 @@ var AngleBall =  (function() {
   return {
     init: function() {
       if(first_load) {
-        setTimeout(this._init_game, 300);
+        setTimeout(this._init_game, 100);
+        if(window.innerWidth == 320 && window.innerHeight == 240){
+          setTimeout(this.init, 100);
+        }
         first_load = false;
       } else {
         this._init_game();
